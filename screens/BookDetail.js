@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import {FONTS, COLORS, SIZES, icons} from '../constants';
 
+import { PlayerScreen } from '.';
+
 const LineDivider = () => {
   return (
     <View style={{width: 1, paddingVertical: 5}}>
@@ -291,7 +293,7 @@ const BookDetail = ({route, navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}
-          onPress={() => console.log('Start Reading')}>
+          onPress={() => navigation.navigate(PlayerScreen)}>
           <Text style={{...FONTS.h3, color: COLORS.white}}>Start Reading</Text>
         </TouchableOpacity>
       </View>
