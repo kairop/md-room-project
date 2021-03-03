@@ -9,6 +9,8 @@ import {
   FlatList,
 } from 'react-native';
 
+import { PlayerScreen } from '.';
+
 import {COLORS, FONTS, SIZES, icons, images} from '../constants';
 
 const LineDivider = () => {
@@ -237,7 +239,7 @@ const Home = ({navigation}) => {
           {/* Get Point */}
           <TouchableOpacity
             style={{flex: 1}}
-            onPress={() => console.log('Get Point')}>
+            onPress={() => navigation.navigate(PlayerScreen)}>
             <View
               style={{
                 flex: 1,
@@ -310,10 +312,7 @@ const Home = ({navigation}) => {
             marginLeft: index == 0 ? SIZES.padding : 0,
             marginRight: SIZES.radius,
           }}
-          onPress={() =>
-            navigation.navigate('BookDetail', {
-              book: item,
-            })
+          onPress={() => navigation.navigate('BookDetail', { book: item,})
           }>
           {/* Book Cover */}
           <Image
@@ -606,9 +605,9 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.black}}>
       {/* Header Section */}
-      <View style={{height: 5}}>
+      <View style={{height: 200}}>
         {/* {renderHeader(profile)} */}
-        {/* {renderButtonSection()} */}
+        {renderButtonSection()}
       </View>
 
       {/* Body Section */}
