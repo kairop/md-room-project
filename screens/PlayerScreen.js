@@ -1,11 +1,24 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, TouchableOpacity, Image } from 'react-native'
 import Player from '../src/Player';
-import { COLORS } from '../constants';
+import { COLORS,SIZES,icons } from '../constants';
 
-const PlayerScreen = () =>{
+const PlayerScreen = ({navigation}) =>{
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+            style={{marginLeft: SIZES.base}}
+            onPress={() => navigation.goBack()}>
+            <Image
+              source={icons.back_arrow_icon}
+              resizeMode="contain"
+              style={{
+                width: 25,
+                height: 25,
+                tintColor:COLORS.white,
+              }}
+            />
+          </TouchableOpacity>
       <Player/>
     </View>
   );

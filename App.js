@@ -29,7 +29,10 @@ const App = () => {
         }}
         initialRouteName={'Home'}>
         {/* Tabs */}
-        <Stack.Screen name="Home" component={Tabs} />
+        <Stack.Screen 
+        name="Home" 
+        component={Tabs} 
+        />
 
         {/* Screens */}
         <Stack.Screen

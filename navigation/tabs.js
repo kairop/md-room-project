@@ -3,6 +3,7 @@ import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home} from '../screens/';
 import {icons, COLORS} from '../constants';
+import { PlayerScreen } from '../screens/';
 
 const Tab = createBottomTabNavigator();
 
@@ -52,7 +53,7 @@ const Tabs = () => {
             case 'Notification':
               return (
                 <Image
-                  source={icons.notification_icon}
+                  source={icons.play_icon}
                   resizeMode="contain"
                   style={{
                     tintColor: tintColor,
@@ -78,8 +79,7 @@ const Tabs = () => {
         },
       })}>
       <Tab.Screen name="Home" component={Home} />
-      {/* <Tab.Screen name="Search" component={Home} /> */}
-      <Tab.Screen name="Notification" component={Home} />
+      <Tab.Screen name="Notification" component={PlayerScreen} />
       <Tab.Screen name="Setting" component={Home} />
     </Tab.Navigator>
   );

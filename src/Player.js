@@ -8,8 +8,11 @@ import {
   Dimensions,
   Animated,
   StyleSheet,
+  TouchableOpacity
 } from "react-native";
 
+import SliderComp from './SliderComp'
+import TrackPlayer, {Capability, Event} from 'react-native-track-player'
 import songs from "./data.json";
 import Controller from "./Controller";
 import { COLORS } from "../constants";
@@ -21,32 +24,89 @@ export default function Player() {
 
   const slider = useRef(null);
   const [songIndex, setSongIndex] = useState(0);
+  const isPlayerReady = useRef(false)
 
   // for tranlating the album art
   const position = useRef(Animated.divide(scrollX, width)).current;
 
   useEffect(() => {
-    // position.addListener(({ value }) => {
-    //   console.log(value);
-    // });
 
     scrollX.addListener(({ value }) => {
       const val = Math.round(value / width);
 
       setSongIndex(val);
 
-      // little buggy
-      //if previous index is not same then only update it
-      // if (val !== songIndex) {
-      //   setSongIndex(val);
-      //   console.log(val);
-      // }
+    });
+
+    TrackPlayer.addEventListener(Event.PlaybackTrackChanged, (e)=>{
+      console.log(e);
+    });
+
+    TrackPlayer.setupPlayer().then(async()=>{
+      console.log('Player Ready');
+      await TrackPlayer.reset()
+      await TrackPlayer.add(songs)
+      isPlayerReady.current = true;
+      TrackPlayer.play()
+
+      await TrackPlayer.updateOptions({
+        stopWithApp: false,
+        alwaysPauseOnInterruption: true,
+        capabilities:[
+          Capability.Play,
+          Capability.Pause,
+          Capability.SkipToNext,
+          Capability.SkipToPrevious
+        ],
+      })
+      TrackPlayer.addEventListener(Event.PlaybackTrackChanged, async (e) => {
+        console.log('song ended', e);
+
+        const trackId = (await TrackPlayer.getCurrentTrack()) - 1; //get the current id
+
+        console.log('track id', trackId, 'index', index.current);
+
+        if (trackId !== index.current) {
+          setSongIndex(trackId);
+          isItFromUser.current = false;
+
+          if (trackId > index.current) {
+            goNext();
+          } else {
+            goPrv();
+          }
+          setTimeout(() => {
+            isItFromUser.current = true;
+          }, 200);
+        }
+
+         //isPlayerReady.current = true;
+      });
+
+      //monitor intterupt when other apps start playing music
+      TrackPlayer.addEventListener(Event.RemoteDuck, (e) => {
+         console.log(e);
+        if (e.paused) {
+          // if pause true we need to pause the music
+          TrackPlayer.pause();
+        } else {
+          TrackPlayer.play();
+        }
+      })
     });
 
     return () => {
       scrollX.removeAllListeners();
     };
+
+    
   }, []);
+
+  useEffect(() => {
+    if(isPlayerReady.current){
+      TrackPlayer.skip(songs[songIndex].id)
+    }
+  }, [songIndex])
 
   const goNext = () => {
     slider.current.scrollToOffset({
@@ -105,7 +165,7 @@ export default function Player() {
         <Text style={styles.title}>{songs[songIndex].title}</Text>
         <Text style={styles.artist}>{songs[songIndex].artist}</Text>
       </View>
-
+            <SliderComp/>
       <Controller onNext={goNext} onPrv={goPrv} />
     </SafeAreaView>
   );
@@ -126,6 +186,7 @@ const styles = StyleSheet.create({
   },
   container: {
     justifyContent: "space-evenly",
+    alignItems:'center',
     height: height,
     maxHeight: 500,
   },
