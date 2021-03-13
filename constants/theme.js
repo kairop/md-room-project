@@ -21,6 +21,11 @@ export const COLORS = {
     lightBlue: "#424BAF",
     darkGreen: "#213432",
     lightGreen: "#31Ad66",
+    // colors by oum
+    blue: "#124680",
+    skyBlue: "A3c4f9",
+    skyskyBlue: "E4eeff",
+    lightpink: "#ff8d8d"
 
 };
 

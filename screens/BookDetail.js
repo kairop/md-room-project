@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import {
   View,
   Text,
@@ -8,7 +8,9 @@ import {
   ScrollView,
   Animated,
 } from 'react-native';
+
 import {FONTS, COLORS, SIZES, icons} from '../constants';
+
 
 const LineDivider = () => {
   return (
@@ -92,21 +94,6 @@ const BookDetail = ({route, navigation}) => {
               Book Detail
             </Text>
           </View>
-
-          <TouchableOpacity
-            style={{marginRigth: SIZES.base}}
-            onPress={() => console.log('Click More')}>
-            <Image
-              source={icons.more_icon}
-              resizeMode="contain"
-              style={{
-                width: 30,
-                height: 30,
-                tintColor: book.navTintColor,
-                alignSelf: 'flex-end',
-              }}
-            />
-          </TouchableOpacity>
         </View>
 
         {/* Book Cover */}
@@ -291,7 +278,7 @@ const BookDetail = ({route, navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}
-          onPress={() => console.log('Start Reading')}>
+           onPress={() => navigation.navigate('Book_read',{Bookread: book})}>
           <Text style={{...FONTS.h3, color: COLORS.white}}>Start Reading</Text>
         </TouchableOpacity>
       </View>

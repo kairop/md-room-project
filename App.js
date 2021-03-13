@@ -3,7 +3,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
 import { BookDetail } from "./screens/";
+import { Book_read } from "./screens/";
 import Tabs from "./navigation/tabs";
+
 
 const theme = {
     ...DefaultTheme,
@@ -29,6 +31,10 @@ const App = () => {
 
                 {/* Screens */}
                 <Stack.Screen name="BookDetail" component={BookDetail} options={{ headerShown: false }} />
+
+                {/* read */}
+                <Stack.Screen name="Book_read" component={Book_read}/> 
+
             </Stack.Navigator>
         </NavigationContainer>
     )
