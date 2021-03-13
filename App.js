@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
-
+import SplashScreen from 'react-native-splash-screen'
 
 // import Screen
 import {BookDetail} from './screens/';
@@ -21,12 +21,18 @@ const theme = {
 const Stack = createStackNavigator();
 
 const App = () => {
+
+  useEffect(()=>{
+    SplashScreen.hide();
+    });
+
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}
+        
         initialRouteName={'Home'}>
         {/* Tabs */}
         <Stack.Screen 
