@@ -37,20 +37,8 @@ const Tabs = () => {
                 />
               );
 
-            case 'Search':
-              return (
-                <Image
-                  source={icons.search_icon}
-                  resizeMode="contain"
-                  style={{
-                    tintColor: tintColor,
-                    width: 25,
-                    height: 25,
-                  }}
-                />
-              );
 
-            case 'Notification':
+            case 'Player':
               return (
                 <Image
                   source={icons.play_icon}
@@ -63,24 +51,11 @@ const Tabs = () => {
                 />
               );
 
-            case 'Setting':
-              return (
-                <Image
-                  source={icons.menu_icon}
-                  resizeMode="contain"
-                  style={{
-                    tintColor: tintColor,
-                    width: 25,
-                    height: 25,
-                  }}
-                />
-              );
           }
         },
       })}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Notification" component={PlayerScreen} />
-      <Tab.Screen name="Setting" component={Home} />
+      <Tab.Screen name="Player" component={PlayerScreen} />
     </Tab.Navigator>
   );
 };

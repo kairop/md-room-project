@@ -1,44 +1,30 @@
 [
-    {
-      "title": "Death Bed",
-      "artist": "Powfu",
-      "artwork": "https://samplesongs.netlify.app/album-arts/death-bed.jpg",
-      "url": "https://samplesongs.netlify.app/Death%20Bed.mp3",
-      "id": "1"
-    },
-    {
-      "title": "Bad Liar",
-      "artist": "Imagine Dragons",
-      "artwork": "https://samplesongs.netlify.app/album-arts/bad-liar.jpg",
-      "url": "https://samplesongs.netlify.app/Bad%20Liar.mp3",
+  {
+    "title": "Music For Concentration",
+    "artist": "Quiet Quest",
+    "artwork": "https://www.img.in.th/images/51fb4c45db79779474111eb68b87df10.jpg",
+    "url": "https://rncsamplesong.000webhostapp.com/1.mp3",
+    "id": "1"
+  },
+  {
+      "title": "Deep Focus Music",
+      "artist": "Greenred Productions",
+      "artwork": "https://www.img.in.th/images/4cd45d8038758adb663c3a574935646b.jpg",
+      "url": "https://rncsamplesong.000webhostapp.com/2.mp3",
       "id": "2"
-    },
-    {
-      "title": "Faded",
-      "artist": "Alan Walker",
-      "artwork": "https://samplesongs.netlify.app/album-arts/faded.jpg",
-      "url": "https://samplesongs.netlify.app/Faded.mp3",
+  },
+  {
+      "title": "Jazz Room for sleep",
+      "artist": "HALIDONMUSIC",
+      "artwork": "https://www.img.in.th/images/1a2c86391489e91512a244a138f26cde.jpg",
+      "url": "https://rncsamplesong.000webhostapp.com/3.mp3",
       "id": "3"
-    },
-    {
-      "title": "Hate Me",
-      "artist": "Ellie Goulding",
-      "artwork": "https://samplesongs.netlify.app/album-arts/hate-me.jpg",
-      "url": "https://samplesongs.netlify.app/Hate%20Me.mp3",
+  },
+  {
+      "title": "Ambient Study Music",
+      "artist": "Quiet Quest",
+      "artwork": "https://www.img.in.th/images/c2b45dcb7ceb642a5d7db57d74986f90.jpg",
+      "url": "https://rncsamplesong.000webhostapp.com/4.mp3",
       "id": "4"
-    },
-    {
-      "title": "Solo",
-      "artist": "Clean Bandit",
-      "artwork": "https://samplesongs.netlify.app/album-arts/solo.jpg",
-      "url": "https://samplesongs.netlify.app/Solo.mp3",
-      "id": "5"
-    },
-    {
-      "title": "Without Me",
-      "artist": "Halsey",
-      "artwork": "https://samplesongs.netlify.app/album-arts/without-me.jpg",
-      "url": "https://samplesongs.netlify.app/Without%20Me.mp3",
-      "id": "6"
-    }
-  ]
+  }
+]

@@ -6,7 +6,8 @@ import { COLORS,SIZES,icons } from '../constants';
 const PlayerScreen = ({navigation}) =>{
   return (
     <View style={styles.container}>
-      <TouchableOpacity
+
+      {/* <TouchableOpacity
             style={{marginLeft: SIZES.base}}
             onPress={() => navigation.goBack()}>
             <Image
@@ -18,7 +19,7 @@ const PlayerScreen = ({navigation}) =>{
                 tintColor:COLORS.white,
               }}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
       <Player/>
     </View>
   );

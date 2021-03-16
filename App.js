@@ -6,6 +6,7 @@ import SplashScreen from 'react-native-splash-screen'
 // import Screen
 import {BookDetail} from './screens/';
 import {PlayerScreen} from './screens';
+import { Book_read } from "./screens/";
 
 // import Tabs
 import Tabs from './navigation/tabs';
@@ -51,9 +52,20 @@ const App = () => {
           component={PlayerScreen}
           options={{headerShown: false}}
         />
+        {/* read */}
+        <Stack.Screen 
+          name="Book_read" 
+          component={Book_read}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
+    
+
+
+          
+
 
 export default App;

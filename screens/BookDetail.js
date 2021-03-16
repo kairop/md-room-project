@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import {
   View,
   Text,
@@ -8,9 +8,8 @@ import {
   ScrollView,
   Animated,
 } from 'react-native';
-import {FONTS, COLORS, SIZES, icons} from '../constants';
 
-import { PlayerScreen } from '.';
+import {FONTS, COLORS, SIZES, icons} from '../constants';
 
 const LineDivider = () => {
   return (
@@ -87,33 +86,11 @@ const BookDetail = ({route, navigation}) => {
               }}
             />
           </TouchableOpacity>
-
-          <View
-            style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text style={{...FONTS.h3, color: book.navTintColor}}>
-              Book Detail
-            </Text>
-          </View>
-
-          <TouchableOpacity
-            style={{marginRigth: SIZES.base}}
-            onPress={() => console.log('Click More')}>
-            <Image
-              source={icons.more_icon}
-              resizeMode="contain"
-              style={{
-                width: 30,
-                height: 30,
-                tintColor: book.navTintColor,
-                alignSelf: 'flex-end',
-              }}
-            />
-          </TouchableOpacity>
         </View>
 
         {/* Book Cover */}
         <View
-          style={{flex: 5, paddingTop: SIZES.padding2, alignItems: 'center'}}>
+          style={{flex: 5, paddingTop: SIZES.padding2, alignItems: 'center' , marginBottom: SIZES.radius}}>
           <Image
             source={book.bookCover}
             resizeMode="contain"
@@ -125,7 +102,7 @@ const BookDetail = ({route, navigation}) => {
           />
         </View>
 
-        {/* Book Name and Author */}
+        {/* Name and Author */}
         <View
           style={{flex: 1.8, alignItems: 'center', justifyContent: 'center'}}>
           <Text style={{...FONTS.h2, color: book.navTintColor}}>
@@ -259,29 +236,6 @@ const BookDetail = ({route, navigation}) => {
   function renderBottomButton() {
     return (
       <View style={{flex: 1, flexDirection: 'row'}}>
-        {/* Bookmark */}
-        <TouchableOpacity
-          style={{
-            width: 60,
-            backgroundColor: COLORS.secondary,
-            marginLeft: SIZES.padding,
-            marginVertical: SIZES.base,
-            borderRadius: SIZES.radius,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onPress={() => console.log('Bookmark')}>
-          <Image
-            source={icons.bookmark_icon}
-            resizeMode="contain"
-            style={{
-              width: 25,
-              height: 25,
-              tintColor: COLORS.lightGray2,
-            }}
-          />
-        </TouchableOpacity>
-
         {/* Start Reading */}
         <TouchableOpacity
           style={{
@@ -293,7 +247,7 @@ const BookDetail = ({route, navigation}) => {
             alignItems: 'center',
             justifyContent: 'center',
           }}
-          onPress={() => navigation.navigate(PlayerScreen)}>
+           onPress={() => navigation.navigate('Book_read',{Bookread: book})}>
           <Text style={{...FONTS.h3, color: COLORS.white}}>Start Reading</Text>
         </TouchableOpacity>
       </View>
